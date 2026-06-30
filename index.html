@@ -203,7 +203,7 @@ body.editmode{padding-top:54px}
 <video id="bgvid" autoplay="" muted="" loop="" playsinline="" preload="auto" poster="https://images.pexels.com/videos/31472390/pexels-photo-31472390.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=627&amp;fit=crop&amp;w=1200"><source src="https://videos.pexels.com/video-files/31472390/13423986_2560_1440_24fps.mp4" type="video/mp4"></video>
 <canvas id="stars" width="1366" height="633" style="width: 1366px; height: 633px;"></canvas>
 <div class="vignette"></div>
-<div id="progress" style="width: 76.4706%;"></div>
+<div id="progress" style="width: 58.8235%;"></div>
 
 <!-- ===== edit bar ===== -->
 <div id="edit-bar">
@@ -215,7 +215,7 @@ body.editmode{padding-top:54px}
 </div>
 
 <!-- ===== side nav ===== -->
-<nav id="nav"><a href="#hero" class=""><span class="lbl">Portada</span><span class="dot"></span></a><a href="#sec-1" class="on"><span class="lbl">01 · Noticia</span><span class="dot"></span></a><a href="#cierre"><span class="lbl">Cierre</span><span class="dot"></span></a></nav>
+<nav id="nav"><a href="#hero" class="on"><span class="lbl">Portada</span><span class="dot"></span></a><a href="#sec-1" class=""><span class="lbl">01 · Noticia</span><span class="dot"></span></a><a href="#cierre"><span class="lbl">Cierre</span><span class="dot"></span></a></nav>
 
 <!-- ===== hero ===== -->
 <header id="hero"><div class="wrap">
@@ -240,7 +240,7 @@ body.editmode{padding-top:54px}
           <h2 data-edit="" data-ph="Título de la noticia" contenteditable="false" class=""></h2>
           <p class="news-desc" data-edit="" data-ph="Texto descriptivo y análisis BMC: cómo se relacionan negocio y cultura en esta noticia…" contenteditable="false">dfv</p>
         </div>
-        <div class="dcarousel" tabindex="0"><div class="dcar-viewport"><div class="dcar-track" style="transform: translateX(0%);"><div class="dcar-slide">
+        <div class="dcarousel" tabindex="0"><div class="dcar-viewport"><div class="dcar-track" style="transform: translateX(-100%);"><div class="dcar-slide">
     <div class="dcar-media">
       <button class="del-btn slide-del edit-only edit-only-flex" title="Quitar asset">✕</button>
       
@@ -249,7 +249,16 @@ body.editmode{padding-top:54px}
       <b data-edit="" data-ph="Subtítulo del componente" contenteditable="false" class=""></b>
       <p data-edit="" data-ph="Subtexto: textura o subtema de este componente…" contenteditable="false" class=""></p>
     </figcaption>
-  </div></div></div><div class="dcar-foot" style="display: none;"><button class="dcar-nav prev" aria-label="Anterior">‹</button><button class="dcar-nav next" aria-label="Siguiente">›</button><div class="dcar-dots"><button class="dcar-dot on" data-i="0"></button></div><div class="dcar-count"><em class="cur">01</em><i>/</i><span class="tot">01</span></div></div><button class="btn-ghost dcar-addslide edit-only edit-only-flex">＋ Agregar componente visual</button></div>
+  </div><div class="dcar-slide">
+    <div class="dcar-media">
+      <button class="del-btn slide-del edit-only edit-only-flex" title="Quitar asset">✕</button>
+      
+    <video controls="" playsinline="" preload="auto" autoplay="" loop="" muted="" src="assets/asset-02.mp4" data-asset="asset-02.mp4"></video></div>
+    <figcaption class="dcar-cap">
+      <b data-edit="" data-ph="Subtítulo del componente"></b>
+      <p data-edit="" data-ph="Subtexto: textura o subtema de este componente…"></p>
+    </figcaption>
+  </div></div></div><div class="dcar-foot" style="display: flex;"><button class="dcar-nav prev" aria-label="Anterior">‹</button><button class="dcar-nav next" aria-label="Siguiente">›</button><div class="dcar-dots"><button class="dcar-dot" data-i="0"></button><button class="dcar-dot on" data-i="1"></button></div><div class="dcar-count"><em class="cur">02</em><i>/</i><span class="tot">02</span></div></div><button class="btn-ghost dcar-addslide edit-only edit-only-flex">＋ Agregar componente visual</button></div>
       </div>
     </div>
   </section>
