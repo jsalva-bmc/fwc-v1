@@ -201,9 +201,9 @@ body.editmode{padding-top:54px}
 
 <div id="bg"></div>
 <video id="bgvid" autoplay="" muted="" loop="" playsinline="" preload="auto" poster="https://images.pexels.com/videos/31472390/pexels-photo-31472390.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=627&amp;fit=crop&amp;w=1200"><source src="https://videos.pexels.com/video-files/31472390/13423986_2560_1440_24fps.mp4" type="video/mp4"></video>
-<canvas id="stars" width="1366" height="632" style="width: 1242px; height: 575px;"></canvas>
+<canvas id="stars" width="1366" height="633" style="width: 1366px; height: 633px;"></canvas>
 <div class="vignette"></div>
-<div id="progress" style="width: 33.2402%;"></div>
+<div id="progress" style="width: 76.4706%;"></div>
 
 <!-- ===== edit bar ===== -->
 <div id="edit-bar">
@@ -215,7 +215,7 @@ body.editmode{padding-top:54px}
 </div>
 
 <!-- ===== side nav ===== -->
-<nav id="nav"><a href="#hero" class="on"><span class="lbl">Portada</span><span class="dot"></span></a><a href="#sec-1" class=""><span class="lbl">01 · Noticia</span><span class="dot"></span></a><a href="#cierre" class=""><span class="lbl">Cierre</span><span class="dot"></span></a></nav>
+<nav id="nav"><a href="#hero" class=""><span class="lbl">Portada</span><span class="dot"></span></a><a href="#sec-1" class="on"><span class="lbl">01 · Noticia</span><span class="dot"></span></a><a href="#cierre"><span class="lbl">Cierre</span><span class="dot"></span></a></nav>
 
 <!-- ===== hero ===== -->
 <header id="hero"><div class="wrap">
@@ -238,7 +238,7 @@ body.editmode{padding-top:54px}
         <div class="news-head">
           <div class="kicker"><span data-edit="" data-ph="Categoría (Marca / Cultura / Estrategia)" contenteditable="false" class=""></span></div>
           <h2 data-edit="" data-ph="Título de la noticia" contenteditable="false" class=""></h2>
-          <p class="news-desc" data-edit="" data-ph="Texto descriptivo y análisis BMC: cómo se relacionan negocio y cultura en esta noticia…" contenteditable="false"></p>
+          <p class="news-desc" data-edit="" data-ph="Texto descriptivo y análisis BMC: cómo se relacionan negocio y cultura en esta noticia…" contenteditable="false">dfv</p>
         </div>
         <div class="dcarousel" tabindex="0"><div class="dcar-viewport"><div class="dcar-track" style="transform: translateX(0%);"><div class="dcar-slide">
     <div class="dcar-media">
@@ -606,6 +606,13 @@ function makeZip(files){
 
 /* ====================== publicar en GitHub ====================== */
 const ghPanel=document.getElementById('gh-panel');
+// habilitar/deshabilitar el botón Publicar según token + repo
+const ghSync=()=>{
+  const t=document.getElementById('gh-token').value.trim();
+  const r=document.getElementById('gh-repo').value.trim();
+  document.getElementById('gh-go').disabled=!(t&&r);
+};
+['gh-token','gh-repo'].forEach(id=>document.getElementById(id).addEventListener('input',ghSync));
 document.getElementById('eb-publish').onclick=()=>{
   document.getElementById('gh-token').value='';   // el token NO se guarda: se ingresa en cada publicación
   document.getElementById('gh-branch').value=localStorage.getItem('bmc_gh_branch')||'main';
@@ -620,6 +627,7 @@ document.getElementById('eb-publish').onclick=()=>{
     if(!repoField.value && ed)repoField.value=ed.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)||'mundial-semana';
   }
   ghPanel.classList.add('open');
+  ghSync();
 };
 document.getElementById('gh-cancel').onclick=()=>{document.getElementById('gh-token').value='';ghPanel.classList.remove('open');};
 const ghLog=(msg,append=true)=>{const s=document.getElementById('gh-status');s.innerHTML=append?(s.innerHTML+'\n'+msg):msg;s.scrollTop=s.scrollHeight;};
